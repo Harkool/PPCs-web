@@ -50,10 +50,10 @@ def user_input_features():
         a7=1
     else: 
         a7=0 
-    if a8=="Yes":
-        a8=1
+    if a8=="≥96":
+        a8=0
     else: 
-        a8=0 
+        a8=1 
     output=[a1,a2,a3,a4,a5,a6,a7,a8]
     patient1=pd.DataFrame(output)
     patient=pd.DataFrame(patient1.values.T,columns=trainx.columns)
