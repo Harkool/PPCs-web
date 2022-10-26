@@ -10,8 +10,7 @@ import shap
 import xgboost as xgb  ###xgboost
 from xgboost.sklearn import XGBClassifier
 import matplotlib.pyplot as plt
-import lime
-import lime.lime_tabular
+
 
 
 st.set_page_config(page_title="Probability prediction of pulmonary complications after Non-cardiothoracic Surgery", layout="wide")
