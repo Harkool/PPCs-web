@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 
 
 
-st.set_page_config(page_title="Probability prediction of pulmonary complications after Non-cardiothoracic Surgery", layout="wide")
+st.set_page_config(page_title="Probability Prediction of Pulmonary Complications after Non-cardiothoracic Surgery", layout="wide")
 
 plt.style.use('default')
 
@@ -27,7 +27,7 @@ xgb.fit(trainx,trainy)
 
 ###side-bar
 def user_input_features():
-    st.title("Probability prediction of pulmonary Complications")
+    st.title("Probability Prediction of Pulmonary Complications")
     st.sidebar.header('User input parameters below')
     a1=st.sidebar.number_input("Age",min_value=18,max_value=120)
     a2=st.sidebar.number_input("CRP(mg/L)",min_value=0.01,max_value=None,step=0.01)
