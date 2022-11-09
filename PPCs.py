@@ -56,7 +56,7 @@ def user_input_features():
         a8=1 
     output=[a1,a2,a3,a4,a5,a6,a7,a8]
     patient1=pd.DataFrame(output)
-    patient=pd.DataFrame(patient1.values.T,columns=trainx.columns)
+    patient=pd.DataFrame(patient1.transpose(),columns=trainx.columns)
     prediction=xgb.predict_proba(patient)
     prediction=float(prediction[:, 1])
     def predict_PPCs():
