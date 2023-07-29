@@ -6,4 +6,4 @@ plotly==5.10.0
 IPython==8.11.0
 scikit-learn==1.2.0
 numba==0.57.0
-numpy==1.19.5
+numpy==1.21.6
