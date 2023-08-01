@@ -375,11 +375,8 @@ def user_input_features():
             else:
                 b="Low risk"
             st.success('The risk group: '+ b)
-            x_train_summary = shap.kmeans(trainx1,2)
-            explainer_lr=shap.KernelExplainer(lr.predict_proba,x_train_summary, feature_names=trainx1.columns)
+            explainer_lr=shap.KernelExplainer(lr.predict_proba,trainx1, feature_names=trainx1.columns)
             shap_values= explainer_lr.shap_values(patient)
-            shap.summary_plot(shap_values[1], x_train_summary, plot_type="bar")
-
             _waterfall.waterfall_legacy(explainer_lr.expected_value[0], shap_values[1][0], feature_names=trainx1.columns)
             
             st.set_option('deprecation.showPyplotGlobalUse', False)
