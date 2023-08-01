@@ -375,7 +375,7 @@ def user_input_features():
             else:
                 b="Low risk"
             st.success('The risk group: '+ b)
-            x_train_summary = shap.kmeans(trainx,2)
+            x_train_summary = shap.kmeans(trainx1,2)
             explainer_lr=shap.KernelExplainer(lr.predict_proba,x_train_summary, feature_names=trainx.columns)
             shap_values= explainer_lr.shap_values(patient)
 
