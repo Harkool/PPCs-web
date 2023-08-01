@@ -459,7 +459,7 @@ def user_input_features():
                 explainer_Cb = shap.TreeExplainer(Cb)
                 
                 shap_values= explainer_Cb(patient)
-                _waterfall.waterfall_legacy(explainer_Cb.expected_value, shap_values[0,:], feature_names=trainx2.columns)
+                shap.plots.waterfall(shap_values[0])
 
 
 
