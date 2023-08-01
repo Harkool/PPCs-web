@@ -378,7 +378,7 @@ def user_input_features():
                 b="Low risk"
             st.success('The risk group: '+ b)
             
-            background = Independent(trainx)
+            background = Independent(trainx1)
             explainer_lr = LinearExplainer(lr,background)
             shap_values= explainer_lr.shap_values(patient)
             _waterfall.waterfall_legacy(explainer_lr.expected_value, shap_values[1], feature_names=trainx1.columns)
