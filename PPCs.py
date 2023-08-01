@@ -378,7 +378,7 @@ def user_input_features():
             x_train_summary = shap.kmeans(trainx1,2)
             explainer_lr=shap.KernelExplainer(lr.predict_proba,x_train_summary, feature_names=trainx1.columns)
             shap_values= explainer_lr.shap_values(patient)
-            shap.summary_plot(shap_values[1], trainx, plot_type="bar")
+            shap.summary_plot(shap_values[1], x_train_summary, plot_type="bar")
 
             _waterfall.waterfall_legacy(explainer_lr.expected_value[0], shap_values[1][0], feature_names=trainx1.columns)
             
