@@ -18,10 +18,7 @@ from shap.plots import _waterfall
 from sklearn.preprocessing import LabelEncoder 
 from sklearn.preprocessing import OneHotEncoder 
 from sklearn.preprocessing import StandardScaler
-import torch
 
-
-torch.set_default_tensor_type(torch.IntTensor)
 class Valuestandard:
     
     def __init__(self, skip_list=None, onehot_list=None, categories_list=None, Skip=False, OneHot=False):
