@@ -376,7 +376,7 @@ def user_input_features():
                 b="Low risk"
             st.success('The risk group: '+ b)
             x_train_summary = shap.kmeans(trainx1,2)
-            explainer_lr=shap.KernelExplainer(lr.predict_proba,x_train_summary, feature_names=trainx.columns)
+            explainer_lr=shap.KernelExplainer(lr.predict_proba,x_train_summary, feature_names=trainx1.columns)
             shap_values= explainer_lr.shap_values(patient)
 
             _waterfall.waterfall_legacy(explainer_lr.expected_value[0], shap_values[0][1], feature_names=trainx1.columns)
