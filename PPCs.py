@@ -377,11 +377,11 @@ def user_input_features():
             else:
                 b="Low risk"
             st.success('The risk group: '+ b)
-            
             background = Independent(trainx1)
             explainer_lr = LinearExplainer(lr,background)
             shap_values= explainer_lr.shap_values(patient)
-            _waterfall.waterfall_legacy(explainer_lr.expected_value, shap_values[0], feature_names=trainx1.columns)
+            _waterfall.waterfall_legacy(explainer_lr.expected_value[0], shap_values[0], feature_names=trainx1.columns)
+            
             st.set_option('deprecation.showPyplotGlobalUse', False)
             st.write("Waterfall plot analysis of PPCs for the patient:")
             st.pyplot(bbox_inches='tight')
