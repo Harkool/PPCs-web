@@ -18,6 +18,8 @@ from shap.plots import _waterfall
 from sklearn.preprocessing import LabelEncoder 
 from sklearn.preprocessing import OneHotEncoder 
 from sklearn.preprocessing import StandardScaler
+from shap.maskers import Independent
+from shap import LinearExplainer, KernelExplainer, Explanation
 
 class Valuestandard:
     
@@ -375,17 +377,12 @@ def user_input_features():
             else:
                 b="Low risk"
             st.success('The risk group: '+ b)
-
-            x_train_summary = shap.kmeans(trainx1,1)
-            explainer_lr=shap.KernelExplainer(lr.predict_proba,x_train_summary, feature_names=trainx1.columns)
+            
+            background = Independent(trainx)
+            explainer_lr = LinearExplainer(lr,background)
             shap_values= explainer_lr.shap_values(patient)
+            _waterfall.waterfall_legacy(explainer_lr.expected_value, shap_values[1], feature_names=trainx1.columns)
 
-
-        #explainer_Cb = shap.TreeExplainer(Cb)
-        #shap_values= explainer_Cb(patient)
-            _waterfall.waterfall_legacy(explainer_lr.expected_value[0], shap_values[1][0], feature_names=trainx1.columns)
-        #shap.plots.waterfall(shap_values[0])
-        #shap.plots.force(shap_values[0])
 
             st.set_option('deprecation.showPyplotGlobalUse', False)
             st.write("Waterfall plot analysis of PPCs for the patient:")
