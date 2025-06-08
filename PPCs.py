@@ -458,7 +458,7 @@ def user_input_features():
                 st.pyplot(fig)  # ✅ 显式传入 fig
                 plt.close(fig)  # ✅ 关闭防止二次显示
                 st.write("Abbreviations: PPCs, postoperative pulmonary complications; CRP, C-reactive protein; SpO2, Peripheral capillary oxygen saturation; ASA, American Society of Anesthesiologists.")
-              if st.button("Reset"):
+            if st.button("Reset"):
                 st.write("")
             st.markdown("*Statement: this website will not record or store any information inputed.")
             st.write("2023 Nanjing First Hospital, Nanjing Medical University. All Rights Reserved ")
