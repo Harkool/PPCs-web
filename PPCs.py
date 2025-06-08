@@ -375,14 +375,20 @@ def user_input_features():
         
             explainer_lr = shap.KernelExplainer(lr.predict_proba, trainx1)
             shap_values = explainer_lr.shap_values(patient)
-            
+        
+            # 创建新图并清空旧图
             fig, ax = plt.subplots()
+            plt.clf()  # ✅ 清空默认图
             _waterfall.waterfall_legacy(
-                explainer_lr.expected_value[0], shap_values[1][0],
+                explainer_lr.expected_value[0],
+                shap_values[1][0],
                 feature_names=trainx1.columns
             )
+            fig = plt.gcf()
             st.write("Waterfall plot analysis of PPCs for the patient:")
-            st.pyplot(fig)  # ✅ 仅这一次绘图
+            st.pyplot(fig)
+            plt.close(fig)  # ✅ 显式关闭，防止 Streamlit 自动再绘一次
+
 
             
             #st.set_option('deprecation.showPyplotGlobalUse', False)
