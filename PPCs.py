@@ -379,7 +379,7 @@ def user_input_features():
             shap_values= explainer_lr.shap_values(patient)
             _waterfall.waterfall_legacy(explainer_lr.expected_value[0], shap_values[1][0], feature_names=trainx1.columns)
             
-            st.set_option('deprecation.showPyplotGlobalUse', False)
+            #st.set_option('deprecation.showPyplotGlobalUse', False)
             st.write("Waterfall plot analysis of PPCs for the patient:")
             st.pyplot(bbox_inches='tight')
             st.write("Abbreviations: PPCs, postoperative pulmonary complications; CRP, C-reactive protein; SpO2, Peripheral capillary oxygen saturation; ASA, American Society of Anesthesiologists.")
@@ -455,7 +455,7 @@ def user_input_features():
 
 
 
-                st.set_option('deprecation.showPyplotGlobalUse', False)
+                #st.set_option('deprecation.showPyplotGlobalUse', False)
                 st.write("Waterfall plot analysis of PPCs for the patient:")
                 st.pyplot(bbox_inches='tight')
                 st.write("Abbreviations: PPCs, postoperative pulmonary complications; CRP, C-reactive protein; SpO2, Peripheral capillary oxygen saturation; ASA, American Society of Anesthesiologists.")
