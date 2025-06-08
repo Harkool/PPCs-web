@@ -369,17 +369,21 @@ def user_input_features():
             return prediction
         result=""
         if st.button("Predict"):
-            st.success('The probability of PPCs for the patient: {:.1f}%'.format(prediction*100))
-            if prediction>0.047:
-                b="High risk"
-            else:
-                b="Low risk"
-            st.success('The risk group: '+ b)
-            explainer_lr=shap.KernelExplainer(lr.predict_proba,trainx1, feature_names=trainx1.columns)
-            shap_values= explainer_lr.shap_values(patient)
+            st.success('The probability of PPCs for the patient: {:.1f}%'.format(prediction * 100))
+            b = "High risk" if prediction > 0.047 else "Low risk"
+            st.success('The risk group: ' + b)
+        
+            explainer_lr = shap.KernelExplainer(lr.predict_proba, trainx1)
+            shap_values = explainer_lr.shap_values(patient)
+            
             fig, ax = plt.subplots()
-            _waterfall.waterfall_legacy(explainer_lr.expected_value[0], shap_values[1][0],feature_names=trainx1.columns)
-            st.pyplot(fig)
+            _waterfall.waterfall_legacy(
+                explainer_lr.expected_value[0], shap_values[1][0],
+                feature_names=trainx1.columns
+            )
+            st.write("Waterfall plot analysis of PPCs for the patient:")
+            st.pyplot(fig)  # ✅ 仅这一次绘图
+
             
             #st.set_option('deprecation.showPyplotGlobalUse', False)
             st.write("Waterfall plot analysis of PPCs for the patient:")
