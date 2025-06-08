@@ -377,7 +377,9 @@ def user_input_features():
             st.success('The risk group: '+ b)
             explainer_lr=shap.KernelExplainer(lr.predict_proba,trainx1, feature_names=trainx1.columns)
             shap_values= explainer_lr.shap_values(patient)
-            _waterfall.waterfall_legacy(explainer_lr.expected_value[0], shap_values[1][0], feature_names=trainx1.columns)
+            fig, ax = plt.subplots()
+            _waterfall.waterfall_legacy(explainer_lr.expected_value[0], shap_values[1][0],feature_names=trainx1.columns)
+            st.pyplot(fig)
             
             #st.set_option('deprecation.showPyplotGlobalUse', False)
             st.write("Waterfall plot analysis of PPCs for the patient:")
