@@ -383,10 +383,10 @@ def user_input_features():
                 feature_names=trainx1.columns
             )
             fig = plt.gcf()
-            st.pyplot(fig)
+            #st.pyplot(fig)
 
             st.write("Waterfall plot analysis of PPCs for the patient:")
-            st.pyplot(bbox_inches='tight')
+            st.pyplot(fig)
             st.write("Abbreviations: PPCs, postoperative pulmonary complications; CRP, C-reactive protein; SpO2, Peripheral capillary oxygen saturation; ASA, American Society of Anesthesiologists.")
         if st.button("Reset"):
             st.write("")
