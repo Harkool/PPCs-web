@@ -385,9 +385,9 @@ def user_input_features():
                 feature_names=trainx1.columns
             )
             fig = plt.gcf()
-            st.write("Waterfall plot analysis of PPCs for the patient:")
-            st.pyplot(fig)
-            plt.close(fig)  # ✅ 显式关闭，防止 Streamlit 自动再绘一次
+            #st.write("Waterfall plot analysis of PPCs for the patient:")
+            #st.pyplot(fig)
+            #plt.close(fig)  # ✅ 显式关闭，防止 Streamlit 自动再绘一次
 
 
             
