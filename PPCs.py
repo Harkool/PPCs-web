@@ -447,24 +447,18 @@ def user_input_features():
                 return prediction
             result=""
             if st.button("Predict"):
-                st.success('The probability of PPCs for the patient: {:.1f}%'.format(prediction*100))
-                if prediction>0.047:
-                    b="High risk"
-                else:
-                    b="Low risk"
-                st.success('The risk group: '+ b)
+                st.success('The probability of PPCs for the patient: {:.1f}%'.format(prediction * 100))
+                b = "High risk" if prediction > 0.047 else "Low risk"
+                st.success('The risk group: ' + b)
                 explainer_Cb = shap.TreeExplainer(Cb)
-                
-                shap_values= explainer_Cb(patient)
-                shap.plots.waterfall(shap_values[0])
-
-
-
-                #st.set_option('deprecation.showPyplotGlobalUse', False)
+                shap_values = explainer_Cb(patient)
+                fig, ax = plt.subplots()
+                shap.plots.waterfall(shap_values[0], show=False)  
                 st.write("Waterfall plot analysis of PPCs for the patient:")
-                st.pyplot(bbox_inches='tight')
+                st.pyplot(fig)  # ✅ 显式传入 fig
+                plt.close(fig)  # ✅ 关闭防止二次显示
                 st.write("Abbreviations: PPCs, postoperative pulmonary complications; CRP, C-reactive protein; SpO2, Peripheral capillary oxygen saturation; ASA, American Society of Anesthesiologists.")
-            if st.button("Reset"):
+              if st.button("Reset"):
                 st.write("")
             st.markdown("*Statement: this website will not record or store any information inputed.")
             st.write("2023 Nanjing First Hospital, Nanjing Medical University. All Rights Reserved ")
