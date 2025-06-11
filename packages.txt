@@ -1,3 +1,5 @@
 libgomp1
 libstdc++6
 libgl1-mesa-glx
+libatomic1
+libcurl4-openssl-dev
