@@ -1,0 +1,3 @@
+model,threshold
+logistic_regression,0.5
+catboost,0.5
