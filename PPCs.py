@@ -108,4 +108,6 @@ else:
         st.pyplot(fig)
 
 st.markdown("---")
-st.caption("2023 Nanjing First Hospital. Contact: zoujianjun100@126.com")
+st.markdown("*This application does not store any of your input data.*")
+st.write("2025 Nanjing First Hospital, Nanjing Medical University. All Rights Reserved ")
+st.write("✉ Contact Us: zoujianjun100@126.com")
