@@ -6,3 +6,6 @@ plotly==5.10.0
 IPython==8.11.0
 scikit-learn==1.2.2
 numpy==1.19.5
+pandas==1.5.0
+joblib==1.2.0
+
