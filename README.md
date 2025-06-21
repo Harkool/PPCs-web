@@ -56,7 +56,7 @@ These dependencies are essential for the **CatBoost** model, particularly for Op
 To run the app locally, use:
 
 ```bash
-streamlit run app.py
+streamlit run PPCs.py
 ```
 
 ### 🔑 **Configuration Files**
